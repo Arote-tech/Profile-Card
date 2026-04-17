@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang = "eng">
+    <head>
+        <meta charset ="UTF-8">
+        <meta name ="viewport" content = "width=device-width, initial-scale= 1.0">
+        <title>Profile Card</title>
+    <link rel = "stylesheet" href = "style.css">
+    <!-- Font Awesome CDN -->
+    <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin = "anonymous" referrerpolicy = "no-referrer">
+
+    </head>
+    <body>
+        <article data-testid="test-profile-card" class = "container">
+            <div class="image-grid">
+                <figure data-testid="test-user-avatar">
+                    <img src = "https://randomuser.me/api/portraits/men/32.jpg" 
+                    alt = "Team Member">
+                    <h1 data-testid="test-user-name" aria-label="This is the user name">Alex Morgan</h1>
+                    <figcaption class = "role">Founder & CEO</figcaption>
+                    <p data-testid="test-user-time" aria-live="polite">15:07</p>
+                </figure>
+                
+            </div>
+            <p data-testid="test-user-bio">
+            Visionary leader with 15+ years of experience in tech innovation and business strategy.    
+            </p>
+            
+
+            <div class="social-class">
+                <ul data-testid="test-user-social-links" class = "social-links">
+                    <li data-testid="test-user-social-linkedin">
+                        <a href = "#" class = "social-icon" target="_blank" rel="noopener noreferrer">
+                            <i class = "fab fa-linkedin-in"></i>
+                        </a>
+                    </li>
+                    <li data-testid="test-user-social-twitter">
+                        <a href = "#" class = "social-icon" target="_blank" rel="noopener noreferrer">
+                            <i class = "fab fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li data-testid="test-user-social-github">
+                        <a href = "#" class = "social-icon" target="_blank" rel="noopener noreferrer">
+                            <i class = "fab fa-github"></i>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="hobbies-dislikes">
+                    <section data-testid="test-user-hobbies">
+                        <h2>Hobbies</h2>
+                        <ul class = "hobbies-list">
+                            <li data-testid="test-user-hobby-1">Traveling</li>
+                            <li data-testid="test-user-hobby-2">Cooking</li>
+                            <li data-testid="test-user-hobby-3">Photography</li>
+                        </ul>
+                    </section>
+                    <section data-testid="test-user-dislikes">
+                        <h2>Dislikes</h2>
+                        <ul class = "dislike-list">
+                            <li data-testid="test-user-dislike-1">Spiders</li>
+                            <li data-testid="test-user-dislike-2">Swimming</li>
+                            <li data-testid="test-user-dislike-3">Noise</li>
+                        </ul>
+                    </section>
+                </div>
+
+                
+            </div>
+
+            <script>
+                function updateTime() {
+                const timeElement = document.querySelector('[data-testid="test-user-time"]');
+                const now = new Date();
+                const hours = String(now.getHours()).padStart(2, '0');
+                const minutes = String(now.getMinutes()).padStart(2, '0');
+                timeElement.textContent = `${hours}:${minutes}`;
+            }
+
+            // Update time immediately and then every minute
+                updateTime();
+                setInterval(updateTime, 60000);
+            </script>
+                        
+        </article>
+    </body>
+</html>
